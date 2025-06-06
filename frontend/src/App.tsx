@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useState } from "react";
 
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from "./components/layouts/LoginPage";
+
+import Topbar from "./components/layouts/Topbar";
+import Sidebar from "./components/layouts/Sidebar";
+
+
+
+// function MyButton() {
+//   return (
+//     <button className="bg-amber-600 text-white px-4 py-2 rounded mt-4">
+//       I'm a button
+//     </button>
+//   );
+// }
+
+// export default function App() {
+//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+//   return (
+//     <div className="flex flex-col min-h-screen">
+//       {/* Topbar (fixed height, e.g., 64px) */}
+//       <div className="h-16">
+//         <Topbar onBrandClick={() => setIsSidebarOpen(true)} />
+//       </div>
+
+//       {/* Main content area below Topbar */}
+//       <div className="flex flex-1">
+//         {/* Sidebar shifts content instead of overlaying */}
+//         {isSidebarOpen && (
+//           <Sidebar onClose={() => setIsSidebarOpen(false)} />
+//         )}
+
+//         {/* Main Content */}
+//         <div className="flex-1 p-6 bg-gray-100 overflow-auto">
+//           <h1 className="text-3xl font-bold mb-4">Welcome to my app</h1>
+//           <MyButton />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// src/App.tsx
+
+const App: React.FC = () => {
   return (
-    <>
-      <div className='bg-amber-200'>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Routes>
+      <Route path="/login" element={<h1>Welcome Home</h1>} />
+      <Route path="/" element={<LoginPage />} />
+    </Routes>
+  );
+};
 
-export default App
+export default App;
