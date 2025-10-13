@@ -5,8 +5,7 @@ import {
   where,
   orderBy,
   onSnapshot,
-  doc,
-  deleteDoc,
+
 } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from 'core/Firebase/firebase';

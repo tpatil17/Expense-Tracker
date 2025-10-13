@@ -59,7 +59,7 @@ export const downloadUserExport = async () => {
 const DashboardPage: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [monthlyTotal, setMonthlyTotal] = useState<number>(0);
-  const [lastTotal, setLastTotal] = useState<number>(0);
+ 
   const [ExRate, setRate] = useState<number>(0);
   const [filteredThisMonthData, setFilteredThisMonthData] = useState<
     CategoryTotals[]
@@ -125,7 +125,7 @@ const DashboardPage: React.FC = () => {
 
       setFilteredThisMonthData(formattedChartData);
       setMonthlyTotal(monthlySum);
-      setLastTotal(pastSum);
+      
 
       if (pastSum === 0) {
         setRate(0);

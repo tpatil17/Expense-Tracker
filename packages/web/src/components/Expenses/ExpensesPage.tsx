@@ -6,7 +6,7 @@ import Topbar from '../layouts/Topbar';
 import Sidebar from '../layouts/Sidebar';
 import ExpenseList from '../layouts/ExpenseCard';
 import ImageCaptureModal from '../OCR/ImageCaptureModal';
-import type { ReceiptData } from '../OCR/ImageCaptureModal';
+
 import AddTransactionModal from './AddExpenseModal'; // ✅ renamed correctly
 import { auth } from 'core/Firebase/firebase'; // ✅ make sure you have access to currentUser
 
@@ -18,7 +18,7 @@ const ExpensesPage: React.FC = () => {
   const user = auth.currentUser;
 
   // 🧾 When receipt is parsed, optionally pre-fill something later
-  const handleReceiptExtract = (data: ReceiptData) => {
+  const handleReceiptExtract = () => {
     // You could later pass parsed items to a receipt review modal
     setShowReceiptModal(false);
     // Could trigger a second modal if needed
