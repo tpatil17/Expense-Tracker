@@ -35,13 +35,7 @@ const ImageCaptureModal: React.FC<Props> = ({ onClose, onExtract }) => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
 
-  const convertToBase64 = (file: File): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
+
 
   const handleProcessImage = async (file: File) => {
     setLoading(true);
