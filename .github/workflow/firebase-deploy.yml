@@ -1,0 +1,40 @@
+name: CI/CD - Firebase Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # 3️⃣ Install dependencies for all workspaces
+      - name: Install dependencies
+        run: npm install
+
+      # 4️⃣ Build web & functions
+      - name: Build web
+        run: npm run build -w web
+
+      - name: Build functions
+        run: npm run build -w functions
+
+      # 5️⃣ Deploy to Firebase
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v13.25.0
+        with:
+          args: deploy --only hosting,functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
