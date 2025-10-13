@@ -1,7 +1,13 @@
 {
-  "dependencies": {
-    "bootstrap": "^5.3.6",
-    "lucide-react": "^0.511.0",
-    "react-bootstrap": "^2.10.10"
+  "name": "expense-tracker",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev:web": "npm run dev -w web",
+    "build:web": "npm run build -w web",
+    "dev:mobile": "npm run start -w mobile",
+    "build:functions": "npm run build -w functions",
+    "deploy": "firebase deploy"
   }
 }
