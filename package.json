@@ -2,12 +2,23 @@
   "name": "expense-tracker",
   "private": true,
   "version": "1.0.0",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev:web": "npm run dev -w web",
     "build:web": "npm run build -w web",
     "dev:mobile": "npm run start -w mobile",
     "build:functions": "npm run build -w functions",
     "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "expo-router": "~6.0.12"
+  },
+  "overrides": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.4"
   }
+  
 }
